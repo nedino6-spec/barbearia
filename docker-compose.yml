@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  barbearia-premium:
+    build: .
+    container_name: barbearia_app
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./prisma/dev.db:/app/prisma/dev.db
+      - ./.wwebjs_auth:/app/.wwebjs_auth
+    environment:
+      - NODE_ENV=production
